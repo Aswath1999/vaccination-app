@@ -1,2 +1,7 @@
 asw,asw
 gok,gok
+Dhinzinator,Dhinzu
+& C:/Users/Aswath/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Aswath/OneDrive - stud.th-deg.de/Documents/digital_vaccination_project/main.py",& C:/Users/Aswath/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Aswath/OneDrive - stud.th-deg.de/Documents/digital_vaccination_project/main.py"
+gokul,gokul
+& C:/Users/Aswath/AppData/Local/Programs/Python/Python39/python.exe "c:/Users/Aswath/OneDrive - stud.th-deg.de/Documents/digital_vaccination_project/Userlogin.py",asw
+prith,prith

@@ -23,9 +23,9 @@ class userlogin:
         userlogin.clear()
         print("Register")
         print("--------")
-        username = input("Please enter Username/emailid")
-        password = getpass("Please enter Password")
-        confirmpassword=getpass("Please confirm your password")
+        username = input("Please enter Username/emailid: ")
+        password = getpass("Please enter Password: ")
+        confirmpassword=getpass("Please confirm your password: ")
         with open ("userInfo.txt","r") as info:
             users=[]
             passwords=[]
@@ -50,8 +50,8 @@ class userlogin:
                         
         
     def login():
-        username = input("Please enter your username")
-        password = getpass("Please enter your password")  
+        username = input("Please enter your username: ")
+        password = getpass("Please enter your password: ")  
         if len(username and password)>1:
             with open ("userInfo.txt","r") as info:
                 users=[]
