@@ -12,7 +12,7 @@ class vaccination():
         userlogin.main()
         userlogin.clear()
         data=dict(zip(self.__vaccination,self.__date))
-        return self.__Name+" is vaccinated with \n"+ ("\n".join("{}\t{}".format(k,v)for k,v in data.items())) "in"
+        return self.__Name+" is vaccinated with \n"+ ("\n".join("{} on {}".format(k,v)for k,v in data.items())) 
 
     #getters
     def getName(self):
