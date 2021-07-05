@@ -65,21 +65,16 @@ class userlogin:
 
                 try:
                     if data[username]:
-                        try:
-                            if password==data[username]:
-                               print("Login successfull")
-                               print("Welcome back ",username)
-                            else:
-                                print("Incorrect password")
-                        except:
-                            print("Incorrect password")
-                    else:
-                        print("Incorrect passsword")
+                        if password==data[username]:
+                            print("Login successfull")
+                            print("Welcome back ",username)
+                        else:
+                            print("Incorrect Username/Password")
+                            userlogin.login()
                 except:
-                    print("Username or password doesn't exist")
+                    print("Username doesn't exist")
+                    userlogin.login()
         else:
             print("Error in login.Please try again")
             userlogin.login()
 
-
-print(userlogin.main())
