@@ -28,11 +28,13 @@ class userlogin:
         confirmpassword=getpass("Please confirm your password")
         with open ("userInfo.txt","r") as info:
             users=[]
+            passwords=[]
             for i in info:
-                user,password=i.split(",")
-                password=password.strip()
+                user,pas=i.split(",")
+                pas=pas.strip() 
                 users.append(user)
-            if not username==None:
+                passwords.append(pas)
+            if  not username==None:
                 if username in users:
                     print("Username exits")
                     userlogin.Register()
