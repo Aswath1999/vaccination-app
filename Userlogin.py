@@ -34,7 +34,7 @@ class userlogin:
                 pas=pas.strip()                 
                 users.append(user)
                 passwords.append(pas)
-            if  not username==None:       #!!! #indha line terla.Idhu anaegamma username type panna kila irukka code run agum nu ninaikiraen
+            if  not username==None:       
                 if username in users:
                     print("Username exits")
                     userlogin.Register()

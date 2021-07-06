@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from Userlogin import userlogin
 
 class vaccination(userlogin): 
@@ -14,7 +13,7 @@ class vaccination(userlogin):
         info=pd.DataFrame([[self.__Name,self.__vaccination,self.__vaccinationdate,self.__code]])
         info.to_csv("Vaccination.csv",mode="a",header=False)  #Use mode="w" when writing first instance
     
-    def readinfo(self):        #reads the csv file and outputs the vaccination details of the user.
+    def readinfo(self):        #reads the csv file and outputs the vaccination details of a particular user.
         userlogin.main_menu()
         userlogin.clear()
         info=pd.read_csv('Vaccination.csv',names=["Name","Vaccination","Date","QR code"])
@@ -36,18 +35,14 @@ class vaccination(userlogin):
         info=pd.read_csv('Vaccination.csv',names=["Name","Vaccination","Date","QR code"]).drop_duplicates(keep='last')
         return info[info["Vaccination"]==vaccination].reset_index(drop=True)
 
-    def getcertificate(self,name,vaccination):   #not working yet but should display a vaccinationcertificate in sentences
-        self.__name=name
-        self.__vaccination=vaccination
-        for row in (info:=pd.read_csv('Vaccination.csv',names=["Name","Vaccination","Date","QR code"])):
-            if info[info["Vaccination"]==vaccination] and  info[info["Name"]==name]:
-                info["Name"]=info["Name"].apply(lambda x: f'str{x}')
-                return info["Name"]
-
-
-        # info
-    
-
+    def getcertificate(self):   #not working yet but should display a vaccinationcertificate in sentences
+        userlogin.main_menu()
+        userlogin.clear()
+        print("Vaccination certificate")
+        print("------------------------")
+        return f'Name: {self.__Name}\nVaccination:{self.__vaccination}\nManufacturer:  \nQR code:{self.__code}'
+                
+      
     
 
 
@@ -61,6 +56,6 @@ e=vaccination("Aswath","Covid","18.04.2020","A4732401")
 # d.writeinfo()
 # e.writeinfo()
 # c.writeinfo()
-print(a.readinfo())
+print(a.getcertificate())
 # print(a.updateinfo("Gokul","Asw"))
 # print(a.infoforprofessionals("Covid")
