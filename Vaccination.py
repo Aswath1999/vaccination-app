@@ -1,4 +1,5 @@
-# This program displays basic vaccination details of a person which uses only lists,dicts,getters and setters
+"""This program displays simple vaccination details and date of vaccicnation of a person
+ which uses only lists,dicts,getters and setters"""
 
 from Userlogin import userlogin
 class vaccination():
@@ -9,7 +10,7 @@ class vaccination():
         self.__date=date
 
     def info(self):
-        userlogin.main()
+        userlogin.main_menu()
         userlogin.clear()
         data=dict(zip(self.__vaccination,self.__date))
         return self.__Name+" is vaccinated with \n"+ ("\n".join("{} on {}".format(k,v)for k,v in data.items())) 
