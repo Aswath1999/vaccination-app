@@ -1,82 +1,69 @@
 from stdiomask import getpass
 import os
+import pandas as pd
+import re
+clear = lambda: os.system('cls')
 
 class userlogin:
-    def clear():
-        return os.system('cls')
 
-    def main_menu():          #main menu of app.will be called in main_vaccination 
-        userlogin.clear()
-        print("WELCOME")
-        print("---------")
-        print("\n1- REGISTER")
-        print("\n2- LOGIN")
-        useroption= int(input("\nChoose an option:"))
-        if useroption==1:
-            userlogin.Register()
-        elif useroption==2:
-            userlogin.login()
-        else:
-            print ("Please give a correct number")
-
-    def Register():
-        userlogin.clear()
-        print("Register")
-        print("--------")
-        username = input("Please enter Username/emailid: ")
-        password = getpass("Please enter Password: ")
-        confirmpassword=getpass("Please confirm your password: ")
-        with open ("userInfo.txt","r") as info:
+    @staticmethod
+    def register(userid,password,username):
+        info=pd.DataFrame([[userid,password,username]])
+        with open("userinfo.csv","r")as userinfo:
             users=[]
-            passwords=[]
-            for i in info:                 # save the users and password to the list  
-                user,pas=i.split(",")
-                pas=pas.strip()                 
-                users.append(user)
-                passwords.append(pas)
-            if  not username==None:       
-                if username in users:
-                    print("Username exits")
-                    userlogin.Register()
-                else:
-                    if password==confirmpassword:
-                       with open ("userInfo.txt","a") as info:      #adds new user to the file
-                                info.write(username+","+password+"\n")
-                                print("User created successfully")
-                                print("you can now log in")
-                    else:
-                        print("Passwords doesn't match. Please register again")
-                        userlogin.Register()
+            for i in userinfo:
+                user,pas,name=i.split(",")
+                users.append(user) 
+            
+            if userid in users:
+               print("Userid already exits.Please try again")
+               print("Please register below with a different userid")
+               userid=input("Enter userid: ")
+               username=input("Enter username:")
+               password=input("Enter password:")
+               confirmpassword=input("confirm password: ") 
+               if re.search(r'[A-Za-z]{5,12}[0-9]*',userid):
+                   if password==confirmpassword:              
+                        userlogin.register(userid,password,username)
+                   else:
+                        print("Password doesn't match")
+               else:
+                   raise SystemExit("The userid should contain letters and characters should be greater than 5")
+
             else:
-                print("login error")
-                userlogin.Register()     
-        
-    def login():
-        username = input("Please enter your username: ")
-        password = getpass("Please enter your password: ")  
-        if len(username and password)>1:
-            with open ("userInfo.txt","r") as info:       #reads login info from file
+                if re.search(r'[A-Za-z]{5,12}[0-9]*',userid):
+                    info.to_csv("userinfo.csv",mode="a",header=False,index=False) 
+                    print("registration successfull")
+                else:
+                    raise SystemExit("The userid should contain letters and characters should be greater than 5.")
+                    
+    @staticmethod
+    def login(userid,password):
+        clear()
+        if re.search(r'[A-Za-z]{5,12}[0-9]*',userid)and re.search(r'[A-Za-z]{5,12}[0-9]*',password):
+            with open("userinfo.csv","r") as userinfo:
                 users=[]
                 passwords=[]
-                for i in info:                       #saves all login info in lists to compare
-                    user,pas=i.split(",")
+                names=[]
+                for i in userinfo:
+                    user,pas,name=i.split(",")
                     pas=pas.strip()
                     users.append(user)
                     passwords.append(pas)
+                    names.append(name)
                 data=dict(zip(users,passwords))
+                username=dict(zip(users,names))
+
 
                 try:
-                    if data[username]:                   #checks whether user is in database
-                        if password==data[username]:     #checks whether username and password matches
-                            print("Login successfull")
-                            print("Welcome back ",username)
+                    if data[userid]:                   #checks whether user is in database
+                        if password==data[userid]:     #checks whether username and password matches
+                            print(("Login successfull"))
+                            print("Welcome back ",username[userid])
                         else:
-                            print("Incorrect Username/Password")
-                            userlogin.login()
+                            raise SystemExit("Incorrect Username/Password")
                 except:
-                    print("Username doesn't exist")
-                    userlogin.login()
+                    raise SystemExit("Username doesn't exist")
         else:
-            print("Error in login.Please try again")
-            userlogin.login()
-
+            raise SystemExit("Userid/password should atleast have 5 characters and should include letters.Please try again")
+                    
