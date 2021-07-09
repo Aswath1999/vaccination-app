@@ -22,13 +22,13 @@ class userlogin:
                username=input("Enter username:")
                password=input("Enter password:")
                confirmpassword=input("confirm password: ") 
-               if re.search(r'[A-Za-z]{5,12}[0-9]*',userid):
+               if re.search(r'[A-Za-z]{5,12}[0-9]*',userid) and re.search(r'[A-Za-z]{5,12}[0-9]*',password) :
                    if password==confirmpassword:              
                         userlogin.register(userid,password,username)
                    else:
                         print("Password doesn't match")
                else:
-                   raise SystemExit("The userid should contain letters and characters should be greater than 5")
+                   raise SystemExit("The userid and password should contain letters and characters should be greater than 5")
 
             else:
                 if re.search(r'[A-Za-z]{5,12}[0-9]*',userid):

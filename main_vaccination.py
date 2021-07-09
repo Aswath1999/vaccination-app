@@ -1,7 +1,6 @@
 from stdiomask import getpass
 import os
 import pandas as pd
-import re
 from Userlogin import userlogin
 clear = lambda: os.system('cls')
 

@@ -1,6 +1,7 @@
 """This program displays simple vaccination details and date of vaccicnation of a person
  which uses only lists,dicts,getters and setters"""
-
+import os
+clear = lambda: os.system('cls')
 class vaccination():
 
     def __init__(self,Name,Vaccination,date):
@@ -9,6 +10,7 @@ class vaccination():
         self.__date=date
 
     def info(self):
+        clear()
         data=dict(zip(self.__vaccination,self.__date))
         return self.__Name+" is vaccinated with \n"+ ("\n".join("{} on {}".format(k,v)for k,v in data.items())) 
 
