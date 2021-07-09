@@ -53,15 +53,6 @@ class vaccinations:
                     return "Your details haven't been updated yet.We will contact you in email as soon as possible"
         else:
             return "Please give a valid number"
-            
-        
-
-    def updateinfo(self,Oldinfo,newinfo):  #to change the value.Changes all values in the database
-        self.__oldinfo=Oldinfo
-        self.__newinfo=newinfo
-        info=pd.read_csv('Vaccination.csv',names=["Name","Vaccination","Date","QR code"])
-        info=info.replace(Oldinfo,newinfo)
-        return info
 
 
     def infoforprofessionals(self,vaccination="Polio"):    #displays details of all users for a particular vaccination 
@@ -76,3 +67,10 @@ class vaccinations:
         print (f'Name: {self.__Name}\nVaccination:{self.__vaccination}\nManufacturer:  \nQR code:{self.__code}')
                 
       
+"""will delete this   """ 
+    # def updateinfo(self,Oldinfo,newinfo):  #to change the value.Changes all values in the database
+    #     self.__oldinfo=Oldinfo
+    #     self.__newinfo=newinfo
+    #     info=pd.read_csv('Vaccination.csv',names=["Name","Vaccination","Date","QR code"])
+    #     info=info.replace(Oldinfo,newinfo)
+    #     return info

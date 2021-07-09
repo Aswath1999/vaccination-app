@@ -52,14 +52,14 @@ class userlogin:
                     passwords.append(pas)
                     names.append(name)
                 data=dict(zip(users,passwords))
-                username=dict(zip(users,names))
+                username=dict(zip(users,names))     #Added this to display the name of the user in the homepage
 
 
                 try:
                     if data[userid]:                   #checks whether user is in database
                         if password==data[userid]:     #checks whether username and password matches
                             print(("Login successfull"))
-                            print("Welcome back ",username[userid])
+                            print("Welcome back ",username[userid])   #The name of user is displayed
                         else:
                             raise SystemExit("Incorrect Username/Password")
                 except:

@@ -1,7 +1,6 @@
 """This program displays simple vaccination details and date of vaccicnation of a person
  which uses only lists,dicts,getters and setters"""
 
-from Userlogin import userlogin
 class vaccination():
 
     def __init__(self,Name,Vaccination,date):
@@ -10,8 +9,6 @@ class vaccination():
         self.__date=date
 
     def info(self):
-        userlogin.main_menu()
-        userlogin.clear()
         data=dict(zip(self.__vaccination,self.__date))
         return self.__Name+" is vaccinated with \n"+ ("\n".join("{} on {}".format(k,v)for k,v in data.items())) 
 
@@ -37,8 +34,3 @@ class vaccination():
 
 
   
-a=vaccination("asw",["Covid","Polio","TB"],["19-05-2020","20-05-1999","19-08-2016"])
-print(a.getName())
-a.setName("Aswath")
-print(a.getName())
-print(a.info())
