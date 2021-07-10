@@ -20,8 +20,8 @@ class userlogin:
                print("Please register below with a different userid")
                userid=input("Enter userid: ")
                username=input("Enter username:")
-               password=input("Enter password:")
-               confirmpassword=input("confirm password: ") 
+               password=getpass("Enter password:")
+               confirmpassword=getpass("confirm password: ") 
                if re.search(r'[A-Za-z]{5,12}[0-9]*',userid) and re.search(r'[A-Za-z]{5,12}[0-9]*',password) :
                    if password==confirmpassword:              
                         userlogin.register(userid,password,username)
@@ -31,8 +31,8 @@ class userlogin:
                    raise SystemExit("The userid and password should contain letters and characters should be greater than 5")
 
             else:
-                if re.search(r'[A-Za-z]{5,12}[0-9]*',userid):
-                    info.to_csv("userinfo.csv",mode="a",header=False,index=False) 
+                if re.search(r'[A-Za-z]{5,12}[0-9]*',userid) and re.search(r'[A-Za-z]{5,12}[0-9]*',password):
+                    info.to_csv("userinfo.csv",mode="a",header=False,index=False)       #Make sure the csv file is present. use w when writing first time
                     print("registration successfull")
                 else:
                     raise SystemExit("The userid should contain letters and characters should be greater than 5.")
@@ -67,3 +67,9 @@ class userlogin:
         else:
             raise SystemExit("Userid/password should atleast have 5 characters and should include letters.Please try again")
                     
+ 
+            
+        
+
+
+        

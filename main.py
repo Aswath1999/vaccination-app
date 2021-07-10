@@ -4,9 +4,11 @@ import os
 clear = lambda: os.system('cls')
 
 #Need to create an instance of a class
-a=vaccinations("Gokul","Polio","20.10.2020","C024512")
+# a=vaccinations("Dhinakar","Covid","20.10.2020","C1024512")
+a=vaccinations("gokulvasan","Polio","20.10.2020","C024512","01.01.2000","Male",
+"South east Bayern","BioNTech","Germany","Government of Bayern")
 
-"""Need to save the details of the user and vaccination in a database"""
+# Need to save the details of the user and vaccination in a databaseas
 # a.writeinfo()
 
 """The homepage of the app asks the user to login. After login, the user will get all the details of the 
@@ -15,12 +17,13 @@ vaccinations. The user can then decide on what vaccine certificate he wants and 
 
 """After clicking the certificate he wants, the user can then download the certificate. We do not have any 
 login system here as it is the second step and the user already has logged in to get details on all his/her vaccinations"""
-# a.getcertificate()
+a.getcertificate()
+
 
 """As health professionals, we are more interested in the analyzing the vaccination details. We can get details of how
 many people had taken a particular vaccine and can also be used to administer vacciantions for a particular place.
 The vaccination details of all users are only given after consent from the user. Only certified professionals will have access to the details. """
-#a.infoforprofessionals()
+# print(a.infoforprofessionals("Polio"))
 
 
 """The codes below is a basic program that uses getters and setters.We removed login system for a quicker presentation"""
@@ -40,9 +43,5 @@ repeated nested if statements which can also be reduced. The passwords saved in 
 """
 
       
-
-
-    
-
 
 
