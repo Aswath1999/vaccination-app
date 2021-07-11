@@ -2,7 +2,7 @@ from stdiomask import getpass
 import os
 import pandas as pd
 import re
-
+import time
 
 class userlogin:
 
@@ -26,11 +26,12 @@ class userlogin:
                         if userid in users:
                             print("Userid already exits.Please try again")
                             print("Please register below with a different userid")
-                            userlogin.register()
+                            a=userlogin()
+                            a=a.register()
                         else:
                             info.to_csv("userinfo.csv",mode="a",header=False,index=False)       #Make sure the csv file is present. use w when writing first time
                             print("registration successfull")
-                            os.sleep(1)
+                            time.sleep(1)
                             break
                     else:
                         info.to_csv('userinfo.csv',index=False)
@@ -38,7 +39,7 @@ class userlogin:
                         os.sleep(1)
                         break
                 else:
-                    print("The userid should contain letters and characters should be greater than 4.")   
+                    print("The userid should contain letters should be greater than 4.")   
                     return False          
             else:
                 print("Password doesn't match")

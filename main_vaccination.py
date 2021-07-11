@@ -1,4 +1,3 @@
-from stdiomask import getpass
 import os
 import pandas as pd
 import csv
@@ -19,7 +18,7 @@ class vaccinations:
 
 
     def __gencertificate__(self,info_certificate):
-        file=open("Certificate.txt","w+")
+        file=open("Certificate.txt","w")
         header="\t\t\t\t\tVACCIFICATE \n\t\t Digital Vaccination Certificate\n"
         line="\t\t----------------------------------"
         Vaccinedetails=f'\n\nName: {info_certificate[0]}\nGender: {info_certificate[5]}\nDate of birth: {info_certificate[4]} \nVaccination: {info_certificate[1]}\nDate of vaccination: {info_certificate[2]}'
@@ -42,8 +41,8 @@ class vaccinations:
             for details in reader:    
                 if self.__Name == details[0]and  Certificate==details[1]:
                     self.__gencertificate__(details)
-                    print("***********************Login Successful**********************")
-                    print("\nCertificate Downloaded Successfully")
+                    print("\t\t\t VACCIFICATE")
+                    print("\t\t\n\n\n\n****************Certificate Downloaded Successfully***********************")
                     break    
             else:
                 print("Your details haven't been uploaded yet")
@@ -51,6 +50,4 @@ class vaccinations:
 
 
             
-# a=vaccinations("Aswath")
-# print(a.getcertificate("Polio"))
                 

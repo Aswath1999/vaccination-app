@@ -36,3 +36,11 @@ class vaccination():
 
 
   
+
+
+# """The codes below is a basic program that uses getters and setters.We removed login system for a quicker presentation"""
+# a=vaccination("asw",["Covid","Polio","TB"],["19-05-2020","20-05-1999","19-08-2016"])
+# print(a.getName())
+# a.setName("Aswath")
+# print(a.getName())
+# print(a.info())

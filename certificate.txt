@@ -2,16 +2,16 @@
 		 Digital Vaccination Certificate
 		----------------------------------
 
-Name: gokulvasan
+Name: Prithivraj
 Gender: Male
-Date of birth: 01.01.2000 
+Date of birth: 19.10.1999 
 Vaccination: Polio
-Date of vaccination: 20.10.2020
-Manufacturer: BioNTech
-Location: South east Bayern
+Date of vaccination: 19.05.2020
+Manufacturer: BioNtech
+Location: Postmunster
 Country: Germany
-QRcode: C024512
-Issued by: Government of Bayern
+QRcode: P1237656
+Issued by: Baveria
 
 
 

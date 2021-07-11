@@ -23,6 +23,8 @@ class Admin(vaccinations):
                 info.to_csv("Vaccination.csv",mode="a",header=False,index=False)
             else:
                 info.to_csv("Vaccination.csv",header=False,index=False)
+
+
             check = input('Enter Y to update more details or N to quit: ')
             if check.upper() == 'Y':
                 pass

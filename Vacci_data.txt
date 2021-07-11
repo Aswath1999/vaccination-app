@@ -1,0 +1,9 @@
+****************************VACCINE DESCRIPTION*******************************
+************Here you find the complete Description of the vaccines*************
+
+ * polio -  Poliovirus vaccine is an active immunizing agent used to prevent poliomyelitis (polio).
+It works by causing your body to produce its own protection (antibodies) against the virus that causes polio.
+* WHEN SHOULD A POLIO VACCINE BE GIVEN - recommends a 4 dose schedule at birth, 6, 10 and 14 weeks.
+Depending on the hygiene settings, more than 4 doses of OPV are needed to protect children for life.
+
+*BENEFITS -produces antibodies in the blood ("humoral" or serum immunity) to all three types of poliovirus
