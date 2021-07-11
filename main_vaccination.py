@@ -40,13 +40,11 @@ class vaccinations:
         with open('Vaccination.csv', newline='') as f:
             reader = csv.reader(f, delimiter=',')
             for details in reader:    
-                if self.__Name == details[0]:
-                    if Certificate==details[1]:
-                        self.__gencertificate__(details)
-                        print("***********************Login Successful**********************")
-                        print("\nCertificate Downloaded Successfully")
-                        break
-                    break
+                if self.__Name == details[0]and  Certificate==details[1]:
+                    self.__gencertificate__(details)
+                    print("***********************Login Successful**********************")
+                    print("\nCertificate Downloaded Successfully")
+                    break    
             else:
                 print("Your details haven't been uploaded yet")
       

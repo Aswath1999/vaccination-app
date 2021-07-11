@@ -44,6 +44,7 @@ if __name__=="__main__":
                     print(a)
                     time.sleep(6)
                     os.system('cls')
+                    
                 if option==2:
                     certificate=input("Which certificate do you want to download? ")
                     info=vaccinations(username)

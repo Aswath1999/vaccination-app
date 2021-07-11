@@ -9,7 +9,7 @@ class userlogin:
 
     def register(self):
         while 1:
-            userid=input("Enter userid: ")
+            userid=input("Enter userid/email address: ")
             username=input("Enter username:")
             password=getpass("Enter password:")
             confirmpassword=getpass("confirm password: ") 
@@ -30,10 +30,12 @@ class userlogin:
                         else:
                             info.to_csv("userinfo.csv",mode="a",header=False,index=False)       #Make sure the csv file is present. use w when writing first time
                             print("registration successfull")
+                            os.sleep(1)
                             break
                     else:
                         info.to_csv('userinfo.csv',index=False)
                         print("registration successfull!!You can now log in")
+                        os.sleep(1)
                         break
                 else:
                     print("The userid should contain letters and characters should be greater than 4.")   
@@ -46,7 +48,7 @@ class userlogin:
               
     def login(self):
         os.system('cls')
-        userid=input("Enter user name: ")
+        userid=input("Enter userid/emailaddress: ")
         password=getpass("Enter Password: ")
         if re.search(r'[A-Za-z].{4,}[0-9]*',userid)and re.search(r'[A-Za-z].{4,}[0-9]*',password):
             with open("userinfo.csv","r") as userinfo:
@@ -55,7 +57,6 @@ class userlogin:
                 names=[]
                 for i in userinfo:
                     user,pas,name=i.split(",")
-                    pas=pas.strip()
                     name=name.strip()
                     users.append(user)
                     passwords.append(pas)
