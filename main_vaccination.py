@@ -11,7 +11,6 @@ class vaccinations:
 
     
     def readinfo(self):       #reads the csv file and outputs the vaccination details of a particular user.
-        os.system('cls')
         col_names=["Name","Vaccination","Date","QR code","dateofbith","Gender","Location","vaccinemanufacturer","country","issuedby"]
         info=pd.read_csv('Vaccination.csv',names=col_names)
         return(info[info['Name']==self.__Name].drop_duplicates(subset=['QR code'],keep='last').reset_index(drop=True))

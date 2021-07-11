@@ -36,10 +36,11 @@ class userlogin:
                     else:
                         info.to_csv('userinfo.csv',index=False)
                         print("registration successfull!!You can now log in")
-                        os.sleep(1)
+                        time.sleep(1)
+                        os.system('cls')
                         break
                 else:
-                    print("The userid should contain letters should be greater than 4.")   
+                    print("The userid should contain atleast 5 letters.")   
                     return False          
             else:
                 print("Password doesn't match")

@@ -41,7 +41,7 @@ if __name__=="__main__":
                 print("Please try again")
                 time.sleep(2)
             else:
-                print("1.Your Vaccination details")
+                print("Your Vaccination details")
                 info=vaccinations(username)
                 a=info.readinfo()
                 print(a)
@@ -51,14 +51,15 @@ if __name__=="__main__":
                 time.sleep(2)
                 os.system('cls')
         elif user_detail==3:
+                os.system('cls')
                 password=getpass("Enter the admin password: ")
                 while 1:
                     if password==Admin_password:
-                        Option=int(input("1.Enter details of user\n2.Do you want to view any vaccination details for analysis?\n\nSelect an option: "))
+                        Option=int(input("1.Enter details of user\n\n2.Do you want to view any vaccination details for analysis?\n\nSelect an option: "))
                         if Option==1:
                             Name=input("Name: ")
                             Vaccination=input("Vaccination: ")
-                            dateofvaccination=input("date of Vaccination: ")
+                            dateofvaccination=input("Date of Vaccination: ")
                             QRcode=input("QRcode: ")
                             dateofbirth=input("Date of birth: ")
                             Gender=input("Gender: ")
