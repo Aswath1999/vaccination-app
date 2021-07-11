@@ -1,11 +1,18 @@
-Vaccination certificate
--------------------------
+					VACCIFICATE 
+		 Digital Vaccination Certificate
+		----------------------------------
+
 Name: gokulvasan
-Vaccination:Polio
-QR code: C024512
-Dateofbirth:01.01.2000
 Gender: Male
-Location: South east Bayern
+Date of birth: 01.01.2000 
+Vaccination: Polio
+Date of vaccination: 20.10.2020
 Manufacturer: BioNTech
-country: Germany
-issued by: Government of Bayern
+Location: South east Bayern
+Country: Germany
+QRcode: C024512
+Issued by: Government of Bayern
+
+
+
+			(This document is valid without the signature)

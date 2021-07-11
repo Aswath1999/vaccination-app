@@ -2,45 +2,53 @@ from stdiomask import getpass
 import os
 import pandas as pd
 import re
-clear = lambda: os.system('cls')
+
 
 class userlogin:
 
-    @staticmethod
-    def register(userid,password,username):
-        info=pd.DataFrame([[userid,password,username]])
-        with open("userinfo.csv","r")as userinfo:
-            users=[]
-            for i in userinfo:
-                user,pas,name=i.split(",")
-                users.append(user) 
-            
-            if userid in users:
-               print("Userid already exits.Please try again")
-               print("Please register below with a different userid")
-               userid=input("Enter userid: ")
-               username=input("Enter username:")
-               password=getpass("Enter password:")
-               confirmpassword=getpass("confirm password: ") 
-               if re.search(r'[A-Za-z]{5,12}[0-9]*',userid) and re.search(r'[A-Za-z]{5,12}[0-9]*',password) :
-                   if password==confirmpassword:              
-                        userlogin.register(userid,password,username)
-                   else:
-                        print("Password doesn't match")
-               else:
-                   raise SystemExit("The userid and password should contain letters and characters should be greater than 5")
 
-            else:
-                if re.search(r'[A-Za-z]{5,12}[0-9]*',userid) and re.search(r'[A-Za-z]{5,12}[0-9]*',password):
-                    info.to_csv("userinfo.csv",mode="a",header=False,index=False)       #Make sure the csv file is present. use w when writing first time
-                    print("registration successfull")
+    def register(self):
+        while 1:
+            userid=input("Enter userid: ")
+            username=input("Enter username:")
+            password=getpass("Enter password:")
+            confirmpassword=getpass("confirm password: ") 
+            info=pd.DataFrame([[userid,password,username]])
+            if password==confirmpassword:
+                if re.search(r'[A-Za-z].{4,}[0-9]*',userid) and re.search(r'[A-Za-z].{4,}[0-9]*',password):
+                    if os.path.exists('userinfo.csv'):
+                        with open("userinfo.csv","r")as userinfo:
+                            users=[]
+                            for i in userinfo:
+                                user,pas,name=i.split(",")
+                                users.append(user) 
+            
+                        if userid in users:
+                            print("Userid already exits.Please try again")
+                            print("Please register below with a different userid")
+                            userlogin.register()
+                        else:
+                            info.to_csv("userinfo.csv",mode="a",header=False,index=False)       #Make sure the csv file is present. use w when writing first time
+                            print("registration successfull")
+                            break
+                    else:
+                        info.to_csv('userinfo.csv',index=False)
+                        print("registration successfull!!You can now log in")
+                        break
                 else:
-                    raise SystemExit("The userid should contain letters and characters should be greater than 5.")
-                    
-    @staticmethod
-    def login(userid,password):
-        clear()
-        if re.search(r'[A-Za-z]{5,12}[0-9]*',userid)and re.search(r'[A-Za-z]{5,12}[0-9]*',password):
+                    print("The userid should contain letters and characters should be greater than 4.")   
+                    return False          
+            else:
+                print("Password doesn't match")
+                return False
+                
+
+              
+    def login(self):
+        os.system('cls')
+        userid=input("Enter user name: ")
+        password=getpass("Enter Password: ")
+        if re.search(r'[A-Za-z].{4,}[0-9]*',userid)and re.search(r'[A-Za-z].{4,}[0-9]*',password):
             with open("userinfo.csv","r") as userinfo:
                 users=[]
                 passwords=[]
@@ -48,24 +56,28 @@ class userlogin:
                 for i in userinfo:
                     user,pas,name=i.split(",")
                     pas=pas.strip()
+                    name=name.strip()
                     users.append(user)
                     passwords.append(pas)
                     names.append(name)
                 data=dict(zip(users,passwords))
                 username=dict(zip(users,names))     #Added this to display the name of the user in the homepage
-
-
                 try:
                     if data[userid]:                   #checks whether user is in database
-                        if password==data[userid]:     #checks whether username and password matches
+                        if password==data[userid]: 
+                            os.system('cls')   
                             print(("Login successfull"))
-                            print("Welcome back ",username[userid])   #The name of user is displayed
+                            print("Welcome back",username[userid])
+                            return username[userid]
                         else:
-                            raise SystemExit("Incorrect Username/Password")
+                            print("Incorrect Username/Password")
+                            return False
                 except:
-                    raise SystemExit("Username doesn't exist")
+                    print("Username doesn't exist")
+                    return False
         else:
-            raise SystemExit("Userid/password should atleast have 5 characters and should include letters.Please try again")
+            print("Userid/password should atleast have 4 characters and should include letters.")
+            return False
                     
  
             
