@@ -83,7 +83,10 @@ if __name__=="__main__":
                         else:
                             print("Please give a valid number")
                     else:
-                        print("Wrong password")
+                        print("Admin password is wrong")
+                        time.sleep(1)
+                        os.system('cls')
+                        break
         elif user_detail==4:
             os.system('cls')
             userpreference=input("Which vaccination do you want to know about?")
@@ -95,6 +98,7 @@ if __name__=="__main__":
             os.system('cls')
             Appinfo.Aboutus()
             time.sleep(3)
+            os.system('cls')
 
         elif user_detail == 6:
             break

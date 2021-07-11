@@ -2,16 +2,16 @@
 		 Digital Vaccination Certificate
 		----------------------------------
 
-Name: Aswath
+Name: Prithivraj
 Gender: Male
-Date of birth: 29.10.1999 
-Vaccination: Covid19
-Date of vaccination: 20.04.2000
+Date of birth: 19.12.1999 
+Vaccination: Influenza
+Date of vaccination: 14.04.2000
 Manufacturer: BioNtech
 Location: Postmunster
 Country: Germany
-QRcode: A678902
-Issued by: Bayern
+QRcode: I54679023
+Issued by: Bayern Government
 
 
 

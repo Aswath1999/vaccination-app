@@ -24,12 +24,11 @@ class Admin(vaccinations):
             else:
                 info.to_csv("Vaccination.csv",header=False,index=False)
 
+            print("User details has been registered: ")
+            break
 
-            check = input('Enter Y to update more details or N to quit: ')
-            if check.upper() == 'Y':
-                pass
-            else:
-                break
+
+            
     @staticmethod
     def infoforprofessionals(): 
         os.system('cls')  
