@@ -1,0 +1,1 @@
+This project is a simple implementation of a vaccine app where users can download their vaccination certificates. The project uses file handling to write and save the vaccination certificates. The project can be improved in a lot of ways from including Apis to send and receive data from vaccination centers/ websites.

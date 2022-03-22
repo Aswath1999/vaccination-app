@@ -112,23 +112,6 @@ if __name__=="__main__":
 
 
 
-
-
-
-
-
-
-
-
-"""The codes can be improved in a lot of ways. It is practically impossible to have a database of all vaccincation details
-of all user in a system. The codes should be improved to send api requests to the vaccination websites and collect
-details from the website.For example, If a user wants a polio certificate, The user can type the QRcode and 
-in the app and the app sends a api request to the official database/website and get the details from there.
- The app should have a cloud function where the users can access the details from any system and 
-place.There are a lot of redundant codes in this program and the codes can be reduced in some places. There are many 
-repeated nested if statements which can also be reduced. The passwords saved in csv file should be hashed as well.
-"""
-
       
 
 
