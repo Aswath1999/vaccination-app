@@ -41,4 +41,4 @@ class Admin(vaccinations):
 # a=Admin("Aswa","Polio","20.10.2020","C024512","01.01.2000","Male",
 # "South east Bayern","BioNTech","Germany","Government of Bayern")
 # print(a.infoforprofessionals())
-# # print(a.writeinfo())
+# # print(a.writeinfo()) ##
